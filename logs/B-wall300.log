@@ -1,0 +1,30 @@
+B-wall300: 28 runs in this shard, 28 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/B-wall300.jsonl
+B-wall300|full|n3200|r1|m300000|canary@0         hard=  0 soft=  3173 moves/s=41634 wall=7.2s
+B-wall300|greedy-accept|n12800|r2|t300000        hard=  0 soft=   499 moves/s=39434 wall=300.1s
+B-wall300|greedy-accept|n12800|r1|t300000        hard=  0 soft=   465 moves/s=40939 wall=300.1s
+B-wall300|no-swap|n12800|r1|t300000              hard=  0 soft=   438 moves/s=34531 wall=300.0s
+B-wall300|no-swap|n12800|r2|t300000              hard=  0 soft=   380 moves/s=34231 wall=300.0s
+B-wall300|greedy-accept|n12800|r5|t300000        hard=  0 soft=   581 moves/s=36636 wall=300.0s
+B-wall300: 28 runs in this shard, 22 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/B-wall300.jsonl
+B-wall300|no-rcl|n12800|r2|t300000               hard=  0 soft=   451 moves/s=29535 wall=300.0s
+B-wall300|no-swap|n12800|r3|t300000              hard=  0 soft=   459 moves/s=36916 wall=300.0s
+B-wall300|full|n12800|r5|t300000                 hard=  0 soft=   480 moves/s=36888 wall=300.1s
+B-wall300|no-rcl|n12800|r5|t300000               hard=  0 soft=   530 moves/s=24351 wall=300.1s
+B-wall300|greedy-accept|n12800|r4|t300000        hard=  0 soft=   522 moves/s=36895 wall=300.1s
+B-wall300|full|n12800|r2|t300000                 hard=  0 soft=   451 moves/s=38583 wall=300.1s
+B-wall300|no-rcl|n12800|r4|t300000               hard=  0 soft=   493 moves/s=26831 wall=300.0s
+B-wall300|full|n3200|r1|m300000|canary@12        hard=  0 soft=  3173 moves/s=32795 wall=9.1s
+B-wall300|no-chain|n12800|r2|t300000             hard=  0 soft=   423 moves/s=47100 wall=300.1s
+B-wall300|no-chain|n12800|r3|t300000             hard=  0 soft=   566 moves/s=46609 wall=300.0s
+B-wall300|no-rcl|n12800|r1|t300000               hard=  0 soft=   480 moves/s=26896 wall=300.0s
+B-wall300|no-swap|n12800|r5|t300000              hard=  0 soft=   390 moves/s=34334 wall=300.0s
+B-wall300|no-swap|n12800|r4|t300000              hard=  0 soft=   444 moves/s=35353 wall=300.0s
+B-wall300|no-chain|n12800|r1|t300000             hard=  0 soft=   538 moves/s=46567 wall=300.0s
+B-wall300|full|n12800|r3|t300000                 hard=  0 soft=   428 moves/s=38426 wall=300.1s
+B-wall300|no-chain|n12800|r5|t300000             hard=  0 soft=   495 moves/s=46357 wall=300.1s
+B-wall300|no-rcl|n12800|r3|t300000               hard=  0 soft=   445 moves/s=27646 wall=300.1s
+B-wall300|greedy-accept|n12800|r3|t300000        hard=  0 soft=   520 moves/s=38113 wall=300.1s
+B-wall300|full|n12800|r1|t300000                 hard=  0 soft=   480 moves/s=38781 wall=300.1s
+B-wall300|full|n12800|r4|t300000                 hard=  0 soft=   477 moves/s=38701 wall=300.0s
+B-wall300|no-chain|n12800|r4|t300000             hard=  0 soft=   645 moves/s=47144 wall=300.0s
+B-wall300|full|n3200|r1|m300000|canary@25        hard=  0 soft=  3173 moves/s=33229 wall=9.0s

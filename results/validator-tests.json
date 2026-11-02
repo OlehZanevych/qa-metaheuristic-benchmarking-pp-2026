@@ -1,0 +1,7555 @@
+{
+ "validator": "src/validator/validate.mjs",
+ "counters": [
+  "lecturerConflicts",
+  "groupConflicts",
+  "roomConflicts",
+  "groupTravel",
+  "lecturerTravel",
+  "abstractRoomOverflow",
+  "lecturerWindows",
+  "groupWindows",
+  "mixedOnlineDays",
+  "unplaced",
+  "badRoom",
+  "badBellSet",
+  "constraintBreaches",
+  "duplicates"
+ ],
+ "cases": [
+  {
+   "id": "V01",
+   "kind": "valid/violating pair",
+   "family": "lecturer conflict",
+   "arrangement": "same lecturer, two rooms, one bell",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r2",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r2",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 1,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 1,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V02",
+   "kind": "valid/violating pair",
+   "family": "group conflict",
+   "arrangement": "same group in two places at one bell",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r2",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r2",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 1,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 1,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V03",
+   "kind": "valid/violating pair",
+   "family": "room conflict",
+   "arrangement": "two cohorts in one room at one bell",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 1,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 1,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V04",
+   "kind": "standalone legality check",
+   "family": "parity",
+   "arrangement": "one room, one bell, alternating weeks: legal",
+   "legalityAssertion": "two classes in one room on alternating weeks do not collide",
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "NUMERATOR"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "DENOMINATOR"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "NUMERATOR"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "NUMERATOR"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 1,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 1,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V05",
+   "kind": "valid/violating pair",
+   "family": "group travel",
+   "arrangement": "b1 to b2 needs 30 min; the gap is 20",
+   "legalityAssertion": "a journey that fits the gap raises nothing",
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 1,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 1,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V06",
+   "kind": "valid/violating pair",
+   "family": "lecturer travel",
+   "arrangement": "the same journey, charged to the lecturer",
+   "legalityAssertion": "the same journey, charged to the lecturer, likewise raises nothing",
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 1,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 1,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V07",
+   "kind": "standalone legality check",
+   "family": "directed travel, reverse order",
+   "arrangement": "later class listed first; legal direction",
+   "legalityAssertion": "a directed journey is read in time order, not in the order the rows appear",
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "x",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "y",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "y",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "x",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "x",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "y",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "y",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "x",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 1,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 1,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V08",
+   "kind": "valid/violating pair",
+   "family": "abstract-room capacity",
+   "arrangement": "sport hall capacity of 40 students is exceeded",
+   "legalityAssertion": null,
+   "note": "one per week of the two-week cycle: both classes run every week",
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "pe",
+        "isOnline": false,
+        "abstractRoomId": "ar-sport",
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "pe",
+        "isOnline": false,
+        "abstractRoomId": "ar-sport",
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "p1",
+       "roomId": null,
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "p1",
+       "roomId": null,
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "pe",
+        "isOnline": false,
+        "abstractRoomId": "ar-sport",
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L2"
+        ],
+        "groupIds": [
+         "G2"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "pe",
+        "isOnline": false,
+        "abstractRoomId": "ar-sport",
+        "studentsCount": 21
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "p1",
+       "roomId": null,
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "p1",
+       "roomId": null,
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 2,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 2,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V09",
+   "kind": "valid/violating pair",
+   "family": "room eligibility",
+   "arrangement": "a room outside the permitted set",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [
+         "r1",
+         "r2"
+        ],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [
+         "r1",
+         "r2"
+        ],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r3",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 1,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 1,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V10",
+   "kind": "valid/violating pair",
+   "family": "time-grid eligibility",
+   "arrangement": "a class restricted to one time grid is placed on an incompatible time grid",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "p1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 1,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 1,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V11",
+   "kind": "valid/violating pair",
+   "family": "not_before",
+   "arrangement": "a class starts before the permitted start time of its lecturer or group",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "NOT_BEFORE",
+          "dayOfWeek": null,
+          "value": "08:30"
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "NOT_BEFORE",
+          "dayOfWeek": null,
+          "value": "10:00"
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V12",
+   "kind": "valid/violating pair",
+   "family": "not_after",
+   "arrangement": "a class ends after the permitted end time of its lecturer or group",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [
+       [
+        "G1",
+        [
+         {
+          "type": "NOT_AFTER",
+          "dayOfWeek": null,
+          "value": "18:00"
+         }
+        ]
+       ]
+      ],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [
+       [
+        "G1",
+        [
+         {
+          "type": "NOT_AFTER",
+          "dayOfWeek": null,
+          "value": "09:00"
+         }
+        ]
+       ]
+      ],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V13",
+   "kind": "valid/violating pair",
+   "family": "unavailable",
+   "arrangement": "a class overlaps an interval during which its lecturer or group is unavailable",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "UNAVAILABLE",
+          "dayOfWeek": 1,
+          "value": "14:00-16:00"
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "UNAVAILABLE",
+          "dayOfWeek": 1,
+          "value": "08:00-09:00"
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 1,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V14",
+   "kind": "valid/violating pair",
+   "family": "max_classes_per_day",
+   "arrangement": "a lecturer or group is assigned a third class when its daily limit is two",
+   "legalityAssertion": null,
+   "note": "one per week of the two-week cycle: the three classes run every week",
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "MAX_CLASSES_PER_DAY",
+          "dayOfWeek": null,
+          "value": 3
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "c",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "c",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t3",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [
+       [
+        "L1",
+        [
+         {
+          "type": "MAX_CLASSES_PER_DAY",
+          "dayOfWeek": null,
+          "value": 2
+         }
+        ]
+       ]
+      ],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "c",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "c",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t3",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 2,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 2,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V15",
+   "kind": "valid/violating pair",
+   "family": "unplaced requirement",
+   "arrangement": "a requirement with no placement",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "b",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       },
+       {
+        "key": "b",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 1,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 1,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "V16",
+   "kind": "valid/violating pair",
+   "family": "duplicate placement",
+   "arrangement": "one requirement placed twice",
+   "legalityAssertion": null,
+   "note": null,
+   "valid": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 0
+    },
+    "feasible": true
+   },
+   "mutated": {
+    "input": {
+     "p": {
+      "academicHourMinutes": 40,
+      "classTimes": [
+       {
+        "id": "t1",
+        "setId": "main",
+        "ordinal": 1,
+        "startTime": "08:30"
+       },
+       {
+        "id": "t2",
+        "setId": "main",
+        "ordinal": 2,
+        "startTime": "10:10"
+       },
+       {
+        "id": "t3",
+        "setId": "main",
+        "ordinal": 3,
+        "startTime": "11:50"
+       },
+       {
+        "id": "p1",
+        "setId": "pe",
+        "ordinal": 1,
+        "startTime": "08:00"
+       }
+      ],
+      "rooms": [
+       "r1",
+       "r2",
+       "r3"
+      ],
+      "roomBuilding": [
+       [
+        "r1",
+        "b1"
+       ],
+       [
+        "r2",
+        "b1"
+       ],
+       [
+        "r3",
+        "b2"
+       ]
+      ],
+      "buildingTravel": [
+       [
+        "b1>b2",
+        30
+       ],
+       [
+        "b2>b1",
+        5
+       ]
+      ],
+      "abstractRooms": [
+       {
+        "id": "ar-sport",
+        "capacity": 40,
+        "buildingId": "b1"
+       }
+      ],
+      "universityCommuteMinutes": 60,
+      "abstractRoomTravelMinutes": 15,
+      "lecturerConstraints": [],
+      "groupConstraints": [],
+      "roomConstraints": [],
+      "fixedEntries": [],
+      "requirements": [
+       {
+        "key": "a",
+        "lecturerIds": [
+         "L1"
+        ],
+        "groupIds": [
+         "G1"
+        ],
+        "roomIds": [],
+        "durationHours": 2,
+        "classStartTimeSetId": "main",
+        "isOnline": false,
+        "abstractRoomId": null,
+        "studentsCount": 20
+       }
+      ]
+     },
+     "s": [
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t1",
+       "roomId": "r1",
+       "weekParity": "EVERY"
+      },
+      {
+       "key": "a",
+       "dayOfWeek": 1,
+       "classStartTimeId": "t2",
+       "roomId": "r2",
+       "weekParity": "EVERY"
+      }
+     ]
+    },
+    "expected": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 1
+    },
+    "observed": {
+     "lecturerConflicts": 0,
+     "groupConflicts": 0,
+     "roomConflicts": 0,
+     "groupTravel": 0,
+     "lecturerTravel": 0,
+     "abstractRoomOverflow": 0,
+     "lecturerWindows": 0,
+     "groupWindows": 0,
+     "mixedOnlineDays": 0,
+     "unplaced": 0,
+     "badRoom": 0,
+     "badBellSet": 0,
+     "constraintBreaches": 0,
+     "duplicates": 1
+    },
+    "feasible": false
+   },
+   "pass": true
+  },
+  {
+   "id": "B01",
+   "kind": "boundary case",
+   "arrangement": "NOT_BEFORE equal to the class start (08:30 vs 08:30) is satisfied",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [
+      [
+       "L1",
+       [
+        {
+         "type": "NOT_BEFORE",
+         "dayOfWeek": null,
+         "value": "08:30"
+        }
+       ]
+      ]
+     ],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B02",
+   "kind": "boundary case",
+   "arrangement": "NOT_AFTER equal to the class end (09:50) is satisfied",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [
+      [
+       "G1",
+       [
+        {
+         "type": "NOT_AFTER",
+         "dayOfWeek": null,
+         "value": "09:50"
+        }
+       ]
+      ]
+     ],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B03",
+   "kind": "boundary case",
+   "arrangement": "UNAVAILABLE windows ending at the class start and starting at its end do not overlap it (half-open intervals)",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [
+      [
+       "L1",
+       [
+        {
+         "type": "UNAVAILABLE",
+         "dayOfWeek": 1,
+         "value": "07:00-08:30"
+        },
+        {
+         "type": "UNAVAILABLE",
+         "dayOfWeek": 1,
+         "value": "09:50-11:00"
+        }
+       ]
+      ]
+     ],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B04",
+   "kind": "boundary case",
+   "arrangement": "a travel gap exactly equal to the journey is sufficient",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       20
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L2"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t2",
+      "roomId": "r3",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B05",
+   "kind": "boundary case",
+   "arrangement": "one minute less than the journey is a violation (gap 20, journey 21)",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       21
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L2"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t2",
+      "roomId": "r3",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 1,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 1,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B06",
+   "kind": "boundary case",
+   "arrangement": "abstract-room demand equal to capacity (20 + 20 = 40) is legal",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "pe",
+       "isOnline": false,
+       "abstractRoomId": "ar-sport",
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L2"
+       ],
+       "groupIds": [
+        "G2"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "pe",
+       "isOnline": false,
+       "abstractRoomId": "ar-sport",
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "p1",
+      "roomId": null,
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "p1",
+      "roomId": null,
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B07",
+   "kind": "boundary case",
+   "arrangement": "classes on inactive weeks do not share capacity (20 numerator + 21 denominator, capacity 40)",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "pe",
+       "isOnline": false,
+       "abstractRoomId": "ar-sport",
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L2"
+       ],
+       "groupIds": [
+        "G2"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "pe",
+       "isOnline": false,
+       "abstractRoomId": "ar-sport",
+       "studentsCount": 21
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "p1",
+      "roomId": null,
+      "weekParity": "NUMERATOR"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "p1",
+      "roomId": null,
+      "weekParity": "DENOMINATOR"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B08",
+   "kind": "boundary case",
+   "arrangement": "a biweekly overflow counts once (41 students, numerator weeks only)",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "pe",
+       "isOnline": false,
+       "abstractRoomId": "ar-sport",
+       "studentsCount": 41
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "p1",
+      "roomId": null,
+      "weekParity": "NUMERATOR"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 1,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 1,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B09",
+   "kind": "boundary case",
+   "arrangement": "three simultaneous classes of one lecturer are three conflicting pairs",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G2"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "c",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G3"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r2",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "c",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r3",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 3,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 3,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B10",
+   "kind": "boundary case",
+   "arrangement": "two co-taught classes at one bell conflict once per shared lecturer",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1",
+        "L2"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L1",
+        "L2"
+       ],
+       "groupIds": [
+        "G2"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r2",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 2,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 2,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B11",
+   "kind": "boundary case",
+   "arrangement": "a daily cap of one is respected by a numerator and a denominator class on the same day",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [
+      [
+       "L1",
+       [
+        {
+         "type": "MAX_CLASSES_PER_DAY",
+         "dayOfWeek": null,
+         "value": 1
+        }
+       ]
+      ]
+     ],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "NUMERATOR"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t2",
+      "roomId": "r1",
+      "weekParity": "DENOMINATOR"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": true,
+   "pass": true
+  },
+  {
+   "id": "B12",
+   "kind": "boundary case",
+   "arrangement": "an empty schedule leaves every requirement unplaced and raises nothing else",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "c",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": []
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 3,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 3,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B13",
+   "kind": "boundary case",
+   "arrangement": "an identical duplicate placement is counted once and creates no conflict with itself",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 1
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 1
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B14",
+   "kind": "boundary case",
+   "arrangement": "a placement for an unknown requirement is ignored, so the real requirement is unplaced",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "zz",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 1,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 1,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B15",
+   "kind": "boundary case",
+   "arrangement": "an unknown start-time identifier and an unknown room identifier are rejected",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L2"
+       ],
+       "groupIds": [
+        "G2"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "tx",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "rx",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 1,
+    "badBellSet": 1,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 1,
+    "badBellSet": 1,
+    "constraintBreaches": 0,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  },
+  {
+   "id": "B16",
+   "kind": "boundary case",
+   "arrangement": "a day-specific NOT_BEFORE overrides the general one (10:00 on Monday, 08:00 otherwise)",
+   "input": {
+    "p": {
+     "academicHourMinutes": 40,
+     "classTimes": [
+      {
+       "id": "t1",
+       "setId": "main",
+       "ordinal": 1,
+       "startTime": "08:30"
+      },
+      {
+       "id": "t2",
+       "setId": "main",
+       "ordinal": 2,
+       "startTime": "10:10"
+      },
+      {
+       "id": "t3",
+       "setId": "main",
+       "ordinal": 3,
+       "startTime": "11:50"
+      },
+      {
+       "id": "p1",
+       "setId": "pe",
+       "ordinal": 1,
+       "startTime": "08:00"
+      }
+     ],
+     "rooms": [
+      "r1",
+      "r2",
+      "r3"
+     ],
+     "roomBuilding": [
+      [
+       "r1",
+       "b1"
+      ],
+      [
+       "r2",
+       "b1"
+      ],
+      [
+       "r3",
+       "b2"
+      ]
+     ],
+     "buildingTravel": [
+      [
+       "b1>b2",
+       30
+      ],
+      [
+       "b2>b1",
+       5
+      ]
+     ],
+     "abstractRooms": [
+      {
+       "id": "ar-sport",
+       "capacity": 40,
+       "buildingId": "b1"
+      }
+     ],
+     "universityCommuteMinutes": 60,
+     "abstractRoomTravelMinutes": 15,
+     "lecturerConstraints": [
+      [
+       "L1",
+       [
+        {
+         "type": "NOT_BEFORE",
+         "dayOfWeek": null,
+         "value": "08:00"
+        },
+        {
+         "type": "NOT_BEFORE",
+         "dayOfWeek": 1,
+         "value": "10:00"
+        }
+       ]
+      ]
+     ],
+     "groupConstraints": [],
+     "roomConstraints": [],
+     "fixedEntries": [],
+     "requirements": [
+      {
+       "key": "a",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      },
+      {
+       "key": "b",
+       "lecturerIds": [
+        "L1"
+       ],
+       "groupIds": [
+        "G1"
+       ],
+       "roomIds": [],
+       "durationHours": 2,
+       "classStartTimeSetId": "main",
+       "isOnline": false,
+       "abstractRoomId": null,
+       "studentsCount": 20
+      }
+     ]
+    },
+    "s": [
+     {
+      "key": "a",
+      "dayOfWeek": 1,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     },
+     {
+      "key": "b",
+      "dayOfWeek": 2,
+      "classStartTimeId": "t1",
+      "roomId": "r1",
+      "weekParity": "EVERY"
+     }
+    ]
+   },
+   "expected": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 1,
+    "duplicates": 0
+   },
+   "observed": {
+    "lecturerConflicts": 0,
+    "groupConflicts": 0,
+    "roomConflicts": 0,
+    "groupTravel": 0,
+    "lecturerTravel": 0,
+    "abstractRoomOverflow": 0,
+    "lecturerWindows": 0,
+    "groupWindows": 0,
+    "mixedOnlineDays": 0,
+    "unplaced": 0,
+    "badRoom": 0,
+    "badBellSet": 0,
+    "constraintBreaches": 1,
+    "duplicates": 0
+   },
+   "feasible": false,
+   "pass": true
+  }
+ ]
+}

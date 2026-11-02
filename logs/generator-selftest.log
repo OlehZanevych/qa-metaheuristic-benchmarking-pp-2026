@@ -1,0 +1,1 @@
+{"family":{"instances":160,"sizes":[400,800,1600,3200,6400,12800,20000,31000],"seeds":20,"sessions":1524000,"infeasibleWitness":0,"notExactlyOnce":0,"shortOfRequestedSize":0},"boundary":{"instances":50,"infeasibleWitness":0,"shortOfRequestedSize":10,"worstShortfallPct":"32.8"},"travelGuardFired":{"family":0,"boundary":45,"boundaryInstancesAffected":8}}

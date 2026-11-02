@@ -1,0 +1,16 @@
+[
+ {"id":1,"narrated":true,"layer":"execution","fault":"host throughput drifted 32 % between batches","inference":"a component effect","status":"O","detection":"re-run of one configuration (canary)","evidence":"R","safeguards":"S2, S3, S4"},
+ {"id":2,"narrated":true,"layer":"control","fault":"a behaviourally null configuration measured non-zero","inference":"a 10 % ablation gain","status":"O","detection":"null arm; code inspection","evidence":"R","safeguards":"S4"},
+ {"id":3,"narrated":false,"layer":"sampling","fault":"one seed per size","inference":"a linear scaling law that reversed","status":"O","detection":"deeper sample","evidence":"R","safeguards":"S7"},
+ {"id":4,"narrated":true,"layer":"diagnostics","fault":"a probe read a field absent from the record","inference":"a live branch was dead code","status":"O","detection":"code inspection","evidence":"N","safeguards":"S5"},
+ {"id":5,"narrated":true,"layer":"configuration","fault":"a defensive clamp silently raised requested values","inference":"the parameter optimum was inside the tested range","status":"O","detection":"code inspection","evidence":"R","safeguards":"S5"},
+ {"id":6,"narrated":true,"layer":"provenance","fault":"a results file spanned a change of objective","inference":"a severe solver regression","status":"U","detection":"provenance cross-check","evidence":"L","safeguards":"S6"},
+ {"id":7,"narrated":false,"layer":"provenance","fault":"an experiment label was recorded for one invocation path but ignored for another","inference":"none; a batch became unattributable","status":"O","detection":"code inspection","evidence":"R","safeguards":"S5, S6"},
+ {"id":8,"narrated":true,"layer":"provenance","fault":"before and after measured on different machines","inference":"a 550-fold speed-up","status":"O","detection":"recomputation from stored files","evidence":"R","safeguards":"S6"},
+ {"id":9,"narrated":true,"layer":"analysis","fault":"a lower-tail statistic included infeasible runs","inference":"a biased dispersion estimate","status":"O","detection":"deeper sample","evidence":"R","safeguards":"S7"},
+ {"id":10,"narrated":false,"layer":"analysis","fault":"rounding of a goodness-of-fit statistic concealed model mismatch","inference":"apparent support for a power-law model","status":"O","detection":"prose checked against table","evidence":"R","safeguards":"S7, S8"},
+ {"id":11,"narrated":false,"layer":"orchestration","fault":"a batch was read before it finished","inference":"an unbalanced design read as a result","status":"O","detection":"batch completed","evidence":"R","safeguards":"S7"},
+ {"id":12,"narrated":true,"layer":"reliability","fault":"a rare failure mode sat below the sample resolution","inference":"a solver without that failure mode","status":"W","detection":"deeper sample; convergence traces","evidence":"R","safeguards":"S7"},
+ {"id":13,"narrated":true,"layer":"reporting","fault":"a figure script measured at build time","inference":"a memory figure that changed between builds","status":"O","detection":"rebuild diff","evidence":"R","safeguards":"S8"},
+ {"id":14,"narrated":false,"layer":"reporting","fault":"a universal quantifier generalised from one instance","inference":"a formula said to match everywhere","status":"O","detection":"computation over all 48 instances","evidence":"R","safeguards":"S7, S8"}
+]

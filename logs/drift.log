@@ -1,0 +1,7 @@
+drift: 6 runs in this shard, 6 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/drift.jsonl
+drift|full|n12800|r1|m1000000|x1                 hard=  0 soft= 10107 moves/s=30782 wall=32.5s
+drift|full|n12800|r1|m1000000|x2                 hard=  0 soft= 10107 moves/s=27901 wall=35.8s
+drift|full|n12800|r1|m1000000|x3                 hard=  0 soft= 10107 moves/s=28091 wall=35.6s
+drift|full|n12800|r1|m1000000|x4                 hard=  0 soft= 10107 moves/s=29087 wall=34.4s
+drift|full|n12800|r1|m1000000|x5                 hard=  0 soft= 10107 moves/s=29217 wall=34.2s
+drift|full|n12800|r1|m1000000|x6                 hard=  0 soft= 10107 moves/s=29133 wall=34.3s

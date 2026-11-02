@@ -1,0 +1,2 @@
+{"key":"p-n12800-i2-w2-t300000","n":12800,"instance":2,"worker":2,"seed":20276640,"timeMs":300000,"feasible":true,"hard":0,"soft":448,"objective":896070,"moves":10746880,"movesPerSec":35823,"heapDeltaMb":17}
+{"key":"p-n12800-i2-w1-t300000","n":12800,"instance":2,"worker":1,"seed":20268721,"timeMs":300000,"feasible":true,"hard":0,"soft":414,"objective":757755,"moves":11965440,"movesPerSec":39885,"heapDeltaMb":22}

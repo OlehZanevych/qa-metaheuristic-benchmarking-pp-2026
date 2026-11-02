@@ -1,0 +1,56 @@
+T3-moves: 55 runs in this shard, 55 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/T3-moves.part0.jsonl
+T3-moves|no-taper|n3200|r4|m1500000              hard=  0 soft=   168 moves/s=39849 wall=37.6s
+T3-moves|greedy-accept|n3200|r1|m1500000         hard=  0 soft=   142 moves/s=32499 wall=46.2s
+T3-moves|greedy-accept|n3200|r8|m1500000         hard=  0 soft=   153 moves/s=41657 wall=36.0s
+T3-moves|no-chain|n3200|r5|m1500000              hard=  0 soft=   137 moves/s=46370 wall=32.3s
+T3-moves|no-hot|n3200|r10|m1500000               hard=  0 soft=   143 moves/s=36983 wall=40.6s
+T3-moves|fixed-weight|n3200|r1|m1500000          hard=  0 soft=   167 moves/s=20309 wall=73.9s
+T3-moves|no-chain|n3200|r3|m1500000              hard=  0 soft=   186 moves/s=24837 wall=60.4s
+T3-moves|no-swap|n3200|r6|m1500000               hard=  0 soft=   160 moves/s=37379 wall=40.1s
+T3-moves|no-swap|n3200|r7|m1500000               hard=  0 soft=   131 moves/s=19574 wall=76.6s
+T3-moves|no-rcl|n3200|r1|m1500000                hard=  0 soft=   107 moves/s=19651 wall=76.3s
+T3-moves|short-history|n3200|r4|m1500000         hard=  0 soft=   163 moves/s=19746 wall=76.0s
+T3-moves|long-history|n3200|r6|m1500000          hard=365 soft=  6075 moves/s=29293 wall=51.2s
+T3-moves|no-chain|n3200|r6|m1500000              hard=  0 soft=   187 moves/s=30954 wall=48.5s
+T3-moves|no-rcl|n3200|r5|m1500000                hard=  0 soft=   155 moves/s=24777 wall=60.5s
+T3-moves|no-taper|n3200|r9|m1500000              hard=  0 soft=   158 moves/s=33541 wall=44.7s
+T3-moves|no-swap-no-chain|n3200|r8|m1500000      hard=  0 soft=   157 moves/s=45339 wall=33.1s
+T3-moves|no-chain|n3200|r10|m1500000             hard=  0 soft=   154 moves/s=50774 wall=29.5s
+T3-moves|no-taper|n3200|r6|m1500000              hard=  0 soft=   152 moves/s=38966 wall=38.5s
+T3-moves|greedy-accept|n3200|r10|m1500000        hard=  0 soft=   142 moves/s=41039 wall=36.6s
+T3-moves|no-swap-no-chain|n3200|r3|m1500000      hard=  0 soft=   179 moves/s=46569 wall=32.2s
+T3-moves|no-chain|n3200|r8|m1500000              hard=  0 soft=   181 moves/s=49070 wall=30.6s
+T3-moves|short-history|n3200|r3|m1500000         hard=  0 soft=   185 moves/s=41873 wall=35.8s
+T3-moves|short-history|n3200|r6|m1500000         hard=  0 soft=   161 moves/s=40745 wall=36.8s
+T3-moves|no-hot|n3200|r4|m1500000                hard=  0 soft=   159 moves/s=37007 wall=40.5s
+T3-moves|no-hot|n3200|r6|m1500000                hard=  0 soft=   172 moves/s=40182 wall=37.3s
+T3-moves|fixed-weight|n3200|r4|m1500000          hard=  0 soft=   155 moves/s=37630 wall=39.9s
+T3-moves|no-hot|n3200|r8|m1500000                hard=  0 soft=   177 moves/s=39187 wall=38.3s
+T3-moves|no-hot|n3200|r7|m1500000                hard=  0 soft=   170 moves/s=38590 wall=38.9s
+T3-moves|greedy-accept|n3200|r5|m1500000         hard=  0 soft=   130 moves/s=43089 wall=34.8s
+T3-moves|no-taper|n3200|r8|m1500000              hard=  0 soft=   167 moves/s=40487 wall=37.0s
+T3-moves|no-swap-no-chain|n3200|r7|m1500000      hard=  0 soft=   185 moves/s=46576 wall=32.2s
+T3-moves|no-hot|n3200|r1|m1500000                hard=  0 soft=   190 moves/s=39012 wall=38.4s
+T3-moves|no-rcl|n3200|r6|m1500000                hard=  0 soft=   148 moves/s=41008 wall=36.6s
+T3-moves|no-taper|n3200|r7|m1500000              hard=  0 soft=   179 moves/s=39445 wall=38.0s
+T3-moves|greedy-accept|n3200|r4|m1500000         hard=  0 soft=   158 moves/s=39658 wall=37.8s
+T3-moves|full|n3200|r7|m1500000                  hard=  0 soft=   179 moves/s=38246 wall=39.2s
+T3-moves|greedy-accept|n3200|r9|m1500000         hard=  0 soft=   164 moves/s=42048 wall=35.7s
+T3-moves|long-history|n3200|r9|m1500000          hard=388 soft=  5846 moves/s=53441 wall=28.1s
+T3-moves|short-history|n3200|r8|m1500000         hard=  0 soft=   181 moves/s=40908 wall=36.7s
+T3-moves|short-history|n3200|r9|m1500000         hard=  0 soft=   189 moves/s=40692 wall=36.9s
+T3-moves|full|n3200|r6|m1500000                  hard=  0 soft=   148 moves/s=41252 wall=36.4s
+T3-moves|no-swap-no-chain|n3200|r9|m1500000      hard=  0 soft=   175 moves/s=46739 wall=32.1s
+T3-moves|long-history|n3200|r7|m1500000          hard=406 soft=  6025 moves/s=51634 wall=29.1s
+T3-moves|short-history|n3200|r10|m1500000        hard=  0 soft=   147 moves/s=39107 wall=38.4s
+T3-moves|greedy-accept|n3200|r7|m1500000         hard=  0 soft=   144 moves/s=39943 wall=37.6s
+T3-moves|no-taper|n3200|r2|m1500000              hard=  0 soft=   135 moves/s=37414 wall=40.1s
+T3-moves|full|n3200|r8|m1500000                  hard=  0 soft=   168 moves/s=38514 wall=38.9s
+T3-moves|no-hot|n3200|r3|m1500000                hard=  0 soft=   168 moves/s=40402 wall=37.1s
+T3-moves|no-hot|n3200|r2|m1500000                hard=  0 soft=   125 moves/s=38609 wall=38.9s
+T3-moves|fixed-weight|n3200|r9|m1500000          hard=  0 soft=   173 moves/s=37389 wall=40.1s
+T3-moves|no-swap-no-chain|n3200|r5|m1500000      hard=  0 soft=   129 moves/s=44946 wall=33.4s
+T3-moves|no-swap-no-chain|n3200|r2|m1500000      hard=  0 soft=   164 moves/s=44559 wall=33.7s
+T3-moves|full|n3200|r5|m1500000                  hard=  0 soft=   155 moves/s=40617 wall=36.9s
+T3-moves|no-chain|n3200|r2|m1500000              hard=  0 soft=   170 moves/s=48383 wall=31.0s
+T3-moves|full|n3200|r4|m1500000                  hard=  0 soft=   159 moves/s=36646 wall=40.9s

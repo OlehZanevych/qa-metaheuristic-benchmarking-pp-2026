@@ -1,0 +1,22 @@
+phase1 start 2026-11-01T16:49:13Z
+T3-moves done 2026-11-01T17:27:03Z
+phase1 resumed 2026-11-01T18:07:29Z after a host restart
+B-moves done 2026-11-01T18:35:21Z
+L-sweep done 2026-11-01T18:57:58Z
+phase1 end 2026-11-01T18:57:58Z
+guarded generator installed 2026-11-01T18:58:11Z
+generator-identity exit 0 2026-11-01T19:03:47Z
+generator-selftest exit 0 2026-11-01T19:06:54Z
+validator-tests exit 0 2026-11-01T19:06:54Z
+mutations exit 0 2026-11-01T19:06:55Z
+phase2 start 2026-11-01T19:06:55Z
+drift done 2026-11-01T19:10:24Z
+T3-wall30-blocked done 2026-11-01T19:33:28Z
+T3-wall60-blocked done 2026-11-01T20:19:03Z
+T3-wall30-shuffled done 2026-11-01T20:42:06Z
+B-wall60 done 2026-11-01T21:07:59Z
+B-wall300 resumed 2026-11-01T22:04:13Z after a host restart
+B-wall300 done 2026-11-01T23:44:53Z
+phase2 end 2026-11-01T23:44:53Z
+generator-identity (with boundary) exit 0 2026-11-01T23:50:07Z
+generator-selftest exit 0 2026-11-01T23:53:00Z

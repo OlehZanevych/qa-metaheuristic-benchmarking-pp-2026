@@ -1,0 +1,170 @@
+[
+ {
+  "id": "M1",
+  "label": "biweekly parity ignored",
+  "from": "if (!weeksOverlap(a.parity, c.parity)) continue;",
+  "to": "if (false) continue;",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V04"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V04"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V04"
+   ]
+  }
+ },
+ {
+  "id": "M2",
+  "label": "directed journey read in input order rather than chronological order",
+  "from": "const [f, l] = a.s <= c.s ? [a, c] : [c, a];",
+  "to": "const [f, l] = [a, c];",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V07"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V07"
+   ]
+  },
+  "initial": {
+   "caught": false,
+   "failingCases": []
+  }
+ },
+ {
+  "id": "M3",
+  "label": "room eligibility not enforced",
+  "from": "else if (q.roomIds.length && !q.roomIds.includes(p.roomId)) F.badRoom++;",
+  "to": "else if (false) F.badRoom++;",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V09"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V09"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V09"
+   ]
+  }
+ },
+ {
+  "id": "M4",
+  "label": "NOT_AFTER compared with the start of a class rather than its end",
+  "from": "if (na && ev.e > toMin(na.value)) F.constraintBreaches++;",
+  "to": "if (na && ev.s > toMin(na.value)) F.constraintBreaches++;",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V12"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V12"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V12"
+   ]
+  }
+ },
+ {
+  "id": "M5",
+  "label": "time-grid (bell-set) membership not enforced",
+  "from": "if (t.setId !== q.classStartTimeSetId) F.badBellSet++;",
+  "to": "if (false) F.badBellSet++;",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V10"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V10"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V10"
+   ]
+  }
+ },
+ {
+  "id": "M6",
+  "label": "abstract-room capacity loosened by 100",
+  "from": "if (sum > cap) V.abstractRoomOverflow++;",
+  "to": "if (sum > cap + 100) V.abstractRoomOverflow++;",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V08",
+    "B08"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V08"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V08"
+   ]
+  }
+ },
+ {
+  "id": "M7",
+  "label": "duplicate placements not detected",
+  "from": "if (seen.has(p.key)) { F.duplicates++; continue; }",
+  "to": "if (false) { F.duplicates++; continue; }",
+  "final": {
+   "caught": true,
+   "failingCases": [
+    "V16",
+    "B13"
+   ]
+  },
+  "article": {
+   "caught": true,
+   "failingCases": [
+    "V16"
+   ]
+  },
+  "initial": {
+   "caught": true,
+   "failingCases": [
+    "V16"
+   ]
+  }
+ }
+]

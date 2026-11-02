@@ -1,0 +1,18 @@
+{
+  "name": "qa-metaheuristic-benchmarking-pp-2026",
+  "version": "1.0.0",
+  "description": "Reproduction package for \"Quality Assurance for Metaheuristic Benchmarking: Hidden Feasible Solutions, Independent Validation and Reproducibility Safeguards\" (Problems in Programming, 2026)",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "test": "node tests/validator-tests.mjs && node tests/mutations.mjs && node tests/generator-selftest.mjs --quick && node tests/generator-identity.mjs --quick",
+    "selftest": "node tests/generator-selftest.mjs && node tests/generator-identity.mjs",
+    "analyse": "node analysis/identity.mjs && node analysis/analyse.mjs && node analysis/tables.mjs",
+    "reconstruct": "cd archive/reconstruct && for f in *.mjs; do node $f > /dev/null || exit 1; done",
+    "reproduce": "./run_all.sh"
+  }
+}

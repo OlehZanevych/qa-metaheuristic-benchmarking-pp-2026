@@ -1,0 +1,49 @@
+T3-wall30-shuffled: 48 runs in this shard, 48 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/T3-wall30-shuffled.jsonl
+T3-wall30-shuffled|full|n3200|r1|m300000|canary@0 hard=  0 soft=  3173 moves/s=37139 wall=8.1s
+T3-wall30-shuffled|long-history|n3200|r5|t30000  hard=375 soft=  6132 moves/s=53181 wall=30.0s
+T3-wall30-shuffled|no-rcl|n3200|r4|t30000        hard=  0 soft=   232 moves/s=37928 wall=30.0s
+T3-wall30-shuffled|long-history|n3200|r3|t30000  hard=347 soft=  5989 moves/s=56361 wall=30.0s
+T3-wall30-shuffled|no-taper|n3200|r3|t30000      hard=  0 soft=   264 moves/s=42532 wall=30.0s
+T3-wall30-shuffled|long-history|n3200|r4|t30000  hard=344 soft=  6122 moves/s=52260 wall=30.0s
+T3-wall30-shuffled|short-history|n3200|r5|t30000 hard=  0 soft=   204 moves/s=42918 wall=30.0s
+T3-wall30-shuffled|no-chain|n3200|r2|t30000      hard=  0 soft=   148 moves/s=54233 wall=30.0s
+T3-wall30-shuffled|fixed-weight|n3200|r3|t30000  hard=  0 soft=   198 moves/s=42645 wall=30.0s
+T3-wall30-shuffled|no-rcl|n3200|r2|t30000        hard=  0 soft=   184 moves/s=37555 wall=30.0s
+T3-wall30-shuffled|no-swap|n3200|r2|t30000       hard=  0 soft=   170 moves/s=36425 wall=30.0s
+T3-wall30-shuffled|no-hot|n3200|r4|t30000        hard=  0 soft=   235 moves/s=38770 wall=30.0s
+T3-wall30-shuffled|full|n3200|r2|t30000          hard=  0 soft=   170 moves/s=39713 wall=30.0s
+T3-wall30-shuffled|long-history|n3200|r2|t30000  hard=342 soft=  6172 moves/s=52479 wall=30.0s
+T3-wall30-shuffled|full|n3200|r4|t30000          hard=  0 soft=   239 moves/s=36915 wall=30.0s
+T3-wall30-shuffled|no-hot|n3200|r5|t30000        hard=  0 soft=   208 moves/s=40423 wall=30.0s
+T3-wall30-shuffled|no-chain|n3200|r5|t30000      hard=  0 soft=   138 moves/s=49453 wall=30.0s
+T3-wall30-shuffled|no-rcl|n3200|r3|t30000        hard=  0 soft=   290 moves/s=40426 wall=30.0s
+T3-wall30-shuffled|no-swap|n3200|r4|t30000       hard=  0 soft=   216 moves/s=36267 wall=30.0s
+T3-wall30-shuffled|full|n3200|r3|t30000          hard=  0 soft=   282 moves/s=40895 wall=30.0s
+T3-wall30-shuffled|no-taper|n3200|r1|t30000      hard=  0 soft=   262 moves/s=38987 wall=30.0s
+T3-wall30-shuffled|no-swap|n3200|r5|t30000       hard=  0 soft=   209 moves/s=38104 wall=30.0s
+T3-wall30-shuffled|no-chain|n3200|r3|t30000      hard=  0 soft=   175 moves/s=51684 wall=30.0s
+T3-wall30-shuffled|full|n3200|r1|m300000|canary@22 hard=  0 soft=  3173 moves/s=34922 wall=8.6s
+T3-wall30-shuffled|short-history|n3200|r3|t30000 hard=  0 soft=   208 moves/s=43951 wall=30.0s
+T3-wall30-shuffled|no-rcl|n3200|r1|t30000        hard=  0 soft=   188 moves/s=38422 wall=30.0s
+T3-wall30-shuffled|short-history|n3200|r4|t30000 hard=  0 soft=   201 moves/s=42105 wall=30.0s
+T3-wall30-shuffled|no-rcl|n3200|r5|t30000        hard=  0 soft=   200 moves/s=40027 wall=30.0s
+T3-wall30-shuffled|no-taper|n3200|r5|t30000      hard=  0 soft=   186 moves/s=42514 wall=30.0s
+T3-wall30-shuffled|no-taper|n3200|r4|t30000      hard=  0 soft=   217 moves/s=38763 wall=30.0s
+T3-wall30-shuffled|full|n3200|r1|t30000          hard=  0 soft=   160 moves/s=40720 wall=30.0s
+T3-wall30-shuffled|no-hot|n3200|r2|t30000        hard=  0 soft=   171 moves/s=38268 wall=30.0s
+T3-wall30-shuffled|short-history|n3200|r1|t30000 hard=  0 soft=   206 moves/s=40802 wall=30.0s
+T3-wall30-shuffled|no-chain|n3200|r4|t30000      hard=  0 soft=   163 moves/s=47467 wall=30.0s
+T3-wall30-shuffled|fixed-weight|n3200|r5|t30000  hard=  0 soft=   218 moves/s=41111 wall=30.0s
+T3-wall30-shuffled|fixed-weight|n3200|r4|t30000  hard=  0 soft=   213 moves/s=38944 wall=30.0s
+T3-wall30-shuffled|short-history|n3200|r2|t30000 hard=  0 soft=   152 moves/s=40690 wall=30.0s
+T3-wall30-shuffled|full|n3200|r5|t30000          hard=  0 soft=   184 moves/s=43357 wall=30.0s
+T3-wall30-shuffled|no-taper|n3200|r2|t30000      hard=  0 soft=   168 moves/s=40736 wall=30.0s
+T3-wall30-shuffled|no-hot|n3200|r1|t30000        hard=  0 soft=   246 moves/s=38579 wall=30.0s
+T3-wall30-shuffled|no-swap|n3200|r1|t30000       hard=  0 soft=   228 moves/s=37823 wall=30.0s
+T3-wall30-shuffled|fixed-weight|n3200|r1|t30000  hard=  0 soft=   225 moves/s=38953 wall=30.0s
+T3-wall30-shuffled|no-chain|n3200|r1|t30000      hard=  0 soft=   181 moves/s=49083 wall=30.0s
+T3-wall30-shuffled|no-swap|n3200|r3|t30000       hard=  0 soft=   187 moves/s=39499 wall=30.0s
+T3-wall30-shuffled|no-hot|n3200|r3|t30000        hard=  0 soft=   221 moves/s=40316 wall=30.0s
+T3-wall30-shuffled|fixed-weight|n3200|r2|t30000  hard=  0 soft=   252 moves/s=37584 wall=30.0s
+T3-wall30-shuffled|long-history|n3200|r1|t30000  hard=421 soft=  5950 moves/s=52375 wall=30.1s
+T3-wall30-shuffled|full|n3200|r1|m300000|canary@45 hard=  0 soft=  3173 moves/s=34442 wall=8.7s

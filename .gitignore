@@ -1,0 +1,7 @@
+# Everything in results/ and archive/ is tracked: it is the evidence behind the article.
+# Only a reader's own scratch output and editor noise are ignored.
+results-rerun/
+results-quick/
+node_modules/
+.DS_Store
+*.swp

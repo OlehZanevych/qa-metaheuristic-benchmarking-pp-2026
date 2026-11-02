@@ -1,0 +1,8 @@
+M1 biweekly parity ignored                                                  final:caught by V04 | initial:caught
+M2 directed journey read in input order rather than chronological order     final:caught by V07 | initial:survived
+M3 room eligibility not enforced                                            final:caught by V09 | initial:caught
+M4 NOT_AFTER compared with the start of a class rather than its end         final:caught by V12 | initial:caught
+M5 time-grid (bell-set) membership not enforced                             final:caught by V10 | initial:caught
+M6 abstract-room capacity loosened by 100                                   final:caught by V08,B08 | initial:caught
+M7 duplicate placements not detected                                        final:caught by V16,B13 | initial:caught
+mutants caught: final 7/7, article 7/7, initial 6/7

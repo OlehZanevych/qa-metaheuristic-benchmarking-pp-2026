@@ -1,0 +1,16 @@
+L-sweep: 15 runs in this shard, 15 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/L-sweep.part0.jsonl
+L-sweep|L5|n12800|r2|m3000000                    hard=  0 soft=  1053 moves/s=36007 wall=83.3s
+L-sweep|L20|n12800|r2|m3000000                   hard=  0 soft=  1014 moves/s=33281 wall=90.1s
+L-sweep|L5|n12800|r3|m3000000                    hard=  0 soft=  1026 moves/s=31405 wall=95.5s
+L-sweep|short-history|n12800|r2|m3000000         hard=  0 soft=  1123 moves/s=34391 wall=87.2s
+L-sweep|short-history|n12800|r5|m3000000         hard=  0 soft=  1296 moves/s=35040 wall=85.6s
+L-sweep|L200|n12800|r1|m3000000                  hard=  0 soft=  4161 moves/s=33678 wall=89.1s
+L-sweep|L20|n12800|r5|m3000000                   hard=  0 soft=  1210 moves/s=35608 wall=84.2s
+L-sweep|L10|n12800|r1|m3000000                   hard=  0 soft=  1179 moves/s=34400 wall=87.2s
+L-sweep|L200|n12800|r5|m3000000                  hard=  0 soft=  4020 moves/s=31310 wall=95.8s
+L-sweep|short-history|n12800|r1|m3000000         hard=  0 soft=  1342 moves/s=34825 wall=86.1s
+L-sweep|L2|n12800|r4|m3000000                    hard=  0 soft=  1074 moves/s=36052 wall=83.2s
+L-sweep|L5|n12800|r5|m3000000                    hard=  0 soft=  1194 moves/s=34974 wall=85.8s
+L-sweep|L10|n12800|r4|m3000000                   hard=  0 soft=  1088 moves/s=36166 wall=82.9s
+L-sweep|L5|n12800|r1|m3000000                    hard=  0 soft=  1180 moves/s=35240 wall=85.1s
+L-sweep|L10|n12800|r5|m3000000                   hard=  0 soft=  1124 moves/s=34382 wall=87.3s

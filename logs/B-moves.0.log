@@ -1,0 +1,32 @@
+B-moves: 30 runs in this shard, 30 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/B-moves.part0.jsonl
+B-moves|greedy-accept|n12800|r9|m3000000         hard=  0 soft=  1155 moves/s=35894 wall=83.6s
+B-moves|no-swap-no-chain|n12800|r8|m3000000      hard=  0 soft=  1486 moves/s=37357 wall=80.3s
+B-moves|no-swap|n12800|r10|m3000000              hard=  0 soft=  1756 moves/s=29568 wall=101.5s
+B-moves|no-swap|n12800|r8|m3000000               hard=  0 soft=  1478 moves/s=30016 wall=99.9s
+B-moves|no-swap-no-chain|n12800|r9|m3000000      hard=  0 soft=  1680 moves/s=36919 wall=81.3s
+B-moves|greedy-accept|n12800|r2|m3000000         hard=  0 soft=  1140 moves/s=33071 wall=90.7s
+B-moves|full|n12800|r3|m3000000                  hard=  0 soft=  1517 moves/s=32967 wall=91.0s
+B-moves|full|n12800|r2|m3000000                  hard=  0 soft=  1532 moves/s=31580 wall=95.0s
+B-moves|greedy-accept|n12800|r4|m3000000         hard=  0 soft=  1226 moves/s=35588 wall=84.3s
+B-moves|greedy-accept|n12800|r5|m3000000         hard=  0 soft=  1174 moves/s=35733 wall=84.0s
+B-moves|no-swap-no-chain|n12800|r4|m3000000      hard=  0 soft=  1586 moves/s=38478 wall=78.0s
+B-moves|no-swap|n12800|r1|m3000000               hard=  0 soft=  1608 moves/s=31080 wall=96.5s
+B-moves|no-rcl|n12800|r2|m3000000                hard=  0 soft=  1532 moves/s=19998 wall=150.0s
+B-moves|full|n12800|r8|m3000000                  hard=  0 soft=  1528 moves/s=33221 wall=90.3s
+B-moves: 30 runs in this shard, 16 to do -> /home/claude/work/bi/app/qa-metaheuristic-benchmarking-pp-2026/results/B-moves.part0.jsonl
+B-moves|no-chain|n12800|r8|m3000000              hard=  0 soft=  1602 moves/s=40972 wall=73.2s
+B-moves|no-chain|n12800|r9|m3000000              hard=  0 soft=  1828 moves/s=42526 wall=70.5s
+B-moves|no-swap|n12800|r4|m3000000               hard=  0 soft=  1489 moves/s=27454 wall=109.3s
+B-moves|no-rcl|n12800|r7|m3000000                hard=  0 soft=  2002 moves/s=17853 wall=168.0s
+B-moves|greedy-accept|n12800|r7|m3000000         hard=  0 soft=  1253 moves/s=31181 wall=96.2s
+B-moves|full|n12800|r1|m3000000                  hard=  0 soft=  1684 moves/s=32375 wall=92.7s
+B-moves|no-chain|n12800|r2|m3000000              hard=  0 soft=  1608 moves/s=41688 wall=72.0s
+B-moves|no-chain|n12800|r5|m3000000              hard=  0 soft=  1771 moves/s=41320 wall=72.6s
+B-moves|greedy-accept|n12800|r6|m3000000         hard=  0 soft=  1377 moves/s=37833 wall=79.3s
+B-moves|greedy-accept|n12800|r1|m3000000         hard=  0 soft=  1039 moves/s=35411 wall=84.7s
+B-moves|no-swap-no-chain|n12800|r5|m3000000      hard=  0 soft=  1602 moves/s=34626 wall=86.6s
+B-moves|no-rcl|n12800|r8|m3000000                hard=  0 soft=  1528 moves/s=20343 wall=147.5s
+B-moves|no-chain|n12800|r3|m3000000              hard=  0 soft=  1686 moves/s=40274 wall=74.5s
+B-moves|no-swap|n12800|r5|m3000000               hard=  0 soft=  1521 moves/s=29436 wall=101.9s
+B-moves|no-rcl|n12800|r4|m3000000                hard=  0 soft=  1538 moves/s=18419 wall=162.9s
+B-moves|no-swap-no-chain|n12800|r10|m3000000     hard=  0 soft=  1805 moves/s=36411 wall=82.4s
