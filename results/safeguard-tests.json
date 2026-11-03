@@ -1,0 +1,132 @@
+[
+ {
+  "id": "G1a",
+  "what": "the retained witness of n=400 r=1 is accepted",
+  "pass": true
+ },
+ {
+  "id": "G1b",
+  "what": "a witness with hard = 0 but one unplaced session is rejected",
+  "pass": true
+ },
+ {
+  "id": "C-T3-wall30-blocked",
+  "what": "the article's records of T3-wall30-blocked pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-T3-wall60-blocked",
+  "what": "the article's records of T3-wall60-blocked pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-T3-wall30-shuffled",
+  "what": "the article's records of T3-wall30-shuffled pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-T3-moves",
+  "what": "the article's records of T3-moves pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-B-wall60",
+  "what": "the article's records of B-wall60 pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-B-wall300",
+  "what": "the article's records of B-wall300 pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-B-moves",
+  "what": "the article's records of B-moves pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-L-sweep",
+  "what": "the article's records of L-sweep pass the checks",
+  "pass": true
+ },
+ {
+  "id": "C-drift",
+  "what": "the article's records of drift pass the checks",
+  "pass": true
+ },
+ {
+  "id": "G2",
+  "what": "a duplicate replacing a missing cell is rejected although the row count is right",
+  "pass": true
+ },
+ {
+  "id": "G3",
+  "what": "a record with another metric version is rejected",
+  "pass": true
+ },
+ {
+  "id": "G4",
+  "what": "a record whose effective options are not those of the released code is rejected",
+  "pass": true
+ },
+ {
+  "id": "G5",
+  "what": "a record from an undeclared generator version is rejected",
+  "pass": true
+ },
+ {
+  "id": "G6",
+  "what": "a record whose configuration disagrees with its plan cell is rejected",
+  "pass": true
+ },
+ {
+  "id": "G7a",
+  "what": "a compatible partial batch can be resumed (its two runs are skipped)",
+  "pass": true
+ },
+ {
+  "id": "G7b",
+  "what": "resuming after a solver source change is refused",
+  "pass": true
+ },
+ {
+  "id": "G7c",
+  "what": "resuming under another metric version is refused",
+  "pass": true
+ },
+ {
+  "id": "G7d",
+  "what": "resuming a file with an unplanned record is refused",
+  "pass": true
+ },
+ {
+  "id": "G7e",
+  "what": "resuming a file of the older record schema is refused",
+  "pass": true
+ },
+ {
+  "id": "G8",
+  "what": "a zero-baseline pair stays in the absolute difference and is excluded (and counted) only from the relative one",
+  "pass": true
+ },
+ {
+  "id": "G8b",
+  "what": "a replicate recorded for only one arm is an error (not a smaller sample)",
+  "pass": true
+ },
+ {
+  "id": "G9a",
+  "what": "the runner refuses to write into results/",
+  "pass": true
+ },
+ {
+  "id": "G9b",
+  "what": "the runner refuses to append to an existing record file without --resume",
+  "pass": true
+ },
+ {
+  "id": "G9c",
+  "what": "with --resume, records of another design are refused",
+  "pass": true
+ }
+]

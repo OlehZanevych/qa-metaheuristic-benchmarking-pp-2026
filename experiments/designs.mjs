@@ -51,5 +51,11 @@ export const DESIGNS = {
   'L-sweep':            { n: 12800, reps: R5,  configs: ['L2', 'L5', 'L10', 'L20', 'short-history', 'L200'], budget: { moves: 3_000_000 }, order: 'shuffled' },
   // Timing variability: six executions of identical work (n = 12 800, replicate 1, 10^6 moves --
   // the historical probe's design), alternating the progress callback on and off.
-  'drift':              { n: 12800, reps: [1], configs: ['full'], budget: { moves: 1_000_000 }, order: 'repeat6' }
+  'drift':              { n: 12800, reps: [1], configs: ['full'], budget: { moves: 1_000_000 }, order: 'repeat6' },
+  // Not part of the article: a few-second fresh run that exercises the whole pipeline (runner,
+  // record checks, resume) on a small instance. Used by `./run_all.sh smoke` and the tests.
+  'smoke':              { n: 400,   reps: [1, 2], configs: ['full', 'no-chain'], budget: { moves: 20_000 }, order: 'shuffled', smoke: true }
 };
+
+/** The designs whose records the article reports (everything except smoke designs). */
+export const ARTICLE_DESIGNS = Object.keys(DESIGNS).filter((d) => !DESIGNS[d].smoke);

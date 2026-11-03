@@ -7,8 +7,11 @@
  * positive when removing the component makes the soft cost worse (the objective is minimised).
  * The reported effect is the mean of r_i over the k matched feasible pairs, with a two-sided 95 %
  * Student-t interval mean +- t(0.975, k-1) * sd / sqrt(k). The replicate is the sampling unit:
- * each replicate is a different generated instance with its own solver seed, so pairs are
- * independent. With k = 5 the interval is wide by construction; it is reported, not tightened.
+ * each replicate is a different generated instance with its own solver seed. Treating the pairs as
+ * independent is a working assumption -- runs on one host share its conditions, which can correlate
+ * wall-clock outcomes -- and one solver seed per instance does not separate instance variability from
+ * solver randomness. With four to ten pairs the interval is approximate (it leans on the normality of
+ * the paired differences); every pair is published in paired-observations.csv.
  */
 const T975 = [NaN, 12.706, 4.303, 3.182, 2.776, 2.571, 2.447, 2.365, 2.306, 2.262, 2.228, 2.201, 2.179, 2.160,
   2.145, 2.131, 2.120, 2.110, 2.101, 2.093, 2.086, 2.080, 2.074, 2.069, 2.064, 2.060, 2.056, 2.052, 2.048, 2.045, 2.042];

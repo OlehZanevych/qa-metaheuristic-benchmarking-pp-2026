@@ -22,6 +22,8 @@ import { dirname, join } from 'node:path';
 import { SINGLES } from './validator-cases.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// where test outputs go: results/ by default, a fresh experiment's own directory under run_all.sh
+const RESULTS = process.env.RESULTS_DIR ?? join(ROOT, 'results');
 const original = readFileSync(join(ROOT, 'src/validator/validate.mjs'), 'utf8');
 export const MUTANTS = [
   ['M1', 'biweekly parity ignored', 'if (!weeksOverlap(a.parity, c.parity)) continue;', 'if (false) continue;'],
@@ -60,8 +62,8 @@ try {
   }
 } finally { rmSync(dir, { recursive: true, force: true }); }
 
-mkdirSync(join(ROOT, 'results'), { recursive: true });
-writeFileSync(join(ROOT, 'results/mutations.json'), JSON.stringify(out, null, 1));
+mkdirSync(RESULTS, { recursive: true });
+writeFileSync(join(RESULTS, 'mutations.json'), JSON.stringify(out, null, 1));
 for (const r of out) console.log(`${r.id} ${r.label.padEnd(72)} final:${r.final.caught ? 'caught by ' + r.final.failingCases.join(',') : 'SURVIVED'} | initial:${r.initial.caught ? 'caught' : 'survived'}`);
 const n = (s) => out.filter((r) => r[s].caught).length;
 console.log(`mutants caught: final ${n('final')}/${out.length}, article ${n('article')}/${out.length}, initial ${n('initial')}/${out.length}`);

@@ -14,6 +14,8 @@ import { guardFired } from '../src/generator/build.mjs';
 import { validate } from '../src/validator/validate.mjs';
 import { BOUNDARY, BOUNDARY_SEEDS } from './boundary-configs.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// where test outputs go: results/ by default, a fresh experiment's own directory under run_all.sh
+const RESULTS = process.env.RESULTS_DIR ?? join(ROOT, 'results');
 const quick = process.argv.includes('--quick');
 const SIZES = quick ? [10, 400] : [10, 30, 50, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 20000, 31000];
 const SEEDS = quick ? 3 : 20;
@@ -36,6 +38,6 @@ const out = { instances: n, sizes: SIZES, seeds: SEEDS, differing: diff, guardFi
     guardFired: boundary.reduce((x, r) => x + r.guardFired, 0),
     referenceWitnessInfeasible: boundary.filter((r) => !r.referenceWitnessFeasible).length,
     releasedWitnessInfeasible: boundary.filter((r) => !r.releasedWitnessFeasible).length, cases: boundary.filter((r) => !r.identical) } };
-if (!quick) { mkdirSync(join(ROOT, 'results'), { recursive: true }); writeFileSync(join(ROOT, 'results/generator-identity.json'), JSON.stringify(out, null, 1)); }
+if (!quick) { mkdirSync(RESULTS, { recursive: true }); writeFileSync(join(RESULTS, 'generator-identity.json'), JSON.stringify(out, null, 1)); }
 console.log(JSON.stringify(out));
 if (diff.length || fired0 || out.boundary.releasedWitnessInfeasible) process.exit(1);

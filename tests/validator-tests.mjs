@@ -17,6 +17,8 @@ import { dirname, join, resolve } from 'node:path';
 import { PAIRS, SINGLES, COUNTERS, vector } from './validator-cases.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// where test outputs go: results/ by default, a fresh experiment's own directory under run_all.sh
+const RESULTS = process.env.RESULTS_DIR ?? join(ROOT, 'results');
 const VPATH = resolve(process.env.VALIDATOR ?? join(ROOT, 'src/validator/validate.mjs'));
 const { validate } = await import(pathToFileURL(VPATH).href);
 const exclude = new Set((process.env.EXCLUDE ?? '').split(',').filter(Boolean));
@@ -49,8 +51,8 @@ for (const c of SINGLES) {
 }
 
 if (!process.env.VALIDATOR) {
-  mkdirSync(join(ROOT, 'results'), { recursive: true });
-  writeFileSync(join(ROOT, 'results/validator-tests.json'), JSON.stringify({ validator: 'src/validator/validate.mjs', counters: COUNTERS, cases: records }, null, 1));
+  mkdirSync(RESULTS, { recursive: true });
+  writeFileSync(join(RESULTS, 'validator-tests.json'), JSON.stringify({ validator: 'src/validator/validate.mjs', counters: COUNTERS, cases: records }, null, 1));
 }
 if (!quiet) for (const f of failures) console.log(`  FAIL ${f}`);
 const nPairs = records.filter((r) => r.kind !== 'boundary case').length, nB = records.length - nPairs;

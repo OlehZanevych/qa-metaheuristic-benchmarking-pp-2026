@@ -3,7 +3,9 @@
 \centering
 \caption{Datasets. R: reproduction runs of \rpDate, specified before execution (configurations $\times$ replicates);
 H: historical records of the development work, archived unchanged and used as case evidence only.
-$^{a}$Interaction and identity check (Sections~\ref{sec:interaction}, \ref{sec:repro-identity})}
+$^{a}$Interaction and identity check (Sections~\ref{sec:interaction}, \ref{sec:repro-identity}); for the latter,
+\rpIdentCompared{} of the \rpIdentCandidates{} archived move-budget runs in H3 have a reproduction run with the same configuration,
+size, seed and budget, and \rpIdentUnmatched{} have none}
 \label{tab:design}
 \footnotesize
 \begin{adjustbox}{max width=\textwidth}
@@ -14,7 +16,7 @@ id & data & size & budget, order and runs & used in \\
 R1 & validator micro-tests; seeded faults & 32 cases; 7 mutants $\times$ 3 suites & -- & Section~\ref{sec:validator} \\
 R2 & generator self-test; generator identity & 160 + 50 instances; 13 sizes $\times$ 20 seeds & -- & Section~\ref{sec:generator} \\
 R3 & protocols, $n=3200$ & 9\,$\times$\,5 per protocol & 30\,s blocked; 60\,s blocked; 30\,s randomised: 135 runs + 9 canaries & Table~\ref{tab:protocol} \\
-R4 & work budget, $n=3200$ & 11\,$\times$\,10 & $1.5\times10^6$ moves, randomised: 110 runs & Tables~\ref{tab:protocol}, \ref{tab:budget}$^{a}$ \\
+R4 & work budget, $n=3200$ & 11\,$\times$\,10 & $1.5\times10^6$ moves, randomised: 110 runs & Table~\ref{tab:protocol}$^{a}$ \\
 R5 & wall-clock budgets, $n=12\,800$ & 5\,$\times$\,5 per budget & 60\,s; 300\,s; randomised: 50 runs + 6 canaries & Table~\ref{tab:budget} \\
 R6 & work budget and $L$ sweep, $n=12\,800$ & 6\,$\times$\,10; 6\,$\times$\,5 & $3\times10^6$ moves, randomised: 90 runs & Table~\ref{tab:budget}; Section~\ref{sec:interaction} \\
 R7 & timing of identical work, $n=12\,800$ & 1 configuration, 6 executions & $10^6$ moves; progress callback on/off & Section~\ref{sec:protocol} \\

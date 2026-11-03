@@ -21,7 +21,9 @@ Generator hash as recorded in the rows (`code.generator`, SHA-256 of `build.mjs`
 * `0db315ee99e81b6c7a7c5dfb07753abebc4885ce991a7c3fc9fe0529b2e0363b`: the released builder with the
   guard. Carried by `drift` and the wall-clock designs, which ran after it was installed.
 
-Both builders emit byte-identical instances for every size and seed used in the study:
+This equivalence is declared, with its evidence, in `analysis/provenance-equivalence.json`; the
+analysis accepts records from either builder only because of that entry and rejects any other
+source version. Both builders emit byte-identical instances for every size and seed used in the study:
 `tests/generator-identity.mjs` compares them on 13 sizes (10 to 31 000 sessions) x 20 seeds and
 requires identical output and a guard that never fires (`results/generator-identity.json`). The
 two hashes therefore describe the same instances.
@@ -57,10 +59,24 @@ byte-identical to the figures of the article's earlier version.
 
 Made on 1-2 November 2026 on one host: Linux x86-64, Intel Xeon 2.1 GHz, two logical CPUs, 8 GiB,
 Node.js 22.22.0 (each row records it in `env`). Move-budget designs ran two processes at a time;
-the host was restarted during `B-moves` (runs already written were kept; the runner resumes
-by skipping recorded keys, and move-budget results do not depend on order or timing). The drift
+the host was restarted during `B-moves` (runs already written were kept; the runner of that time
+resumed by skipping recorded keys, and move-budget results do not depend on order or timing; all
+`B-moves` records carry the same source hashes, metric version and environment, which
+`analysis/records.mjs` now checks). The current runner resumes only on request (`--resume`) and only
+after checking that the existing records are compatible. The drift
 and wall-clock designs ran afterwards, one process at a time; no other experiment ran on the host meanwhile.
 The host was restarted a second time during `B-wall300`, after its first canary and six runs; the
 remaining runs were made after the restart in the same randomised order, so that design has a gap
 of about fifteen minutes in its timeline (visible in `startedAt`). Its canaries were run at the
 recorded positions as usual.
+
+## Version 1.1 (November 2026)
+
+The runner, the analysis and the tests were changed after the records in `results/` were made; the
+solver, generator and validator sources were not (their hashes above are unchanged), and the
+article's numbers and tables are byte-identical. What changed: fresh experiments go into their own
+directory and resume only on request after a compatibility check; the witness is checked with the
+full feasibility predicate; new records carry the filter vector, a schedule hash, an instance hash
+and run ids (schema 2); the analysis checks every record set against its plan and the declared
+provenance before computing anything, and keeps zero-baseline pairs in absolute differences;
+`tests/safeguard-tests.mjs` tests those rejections.

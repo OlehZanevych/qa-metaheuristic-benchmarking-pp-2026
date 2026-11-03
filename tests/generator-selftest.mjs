@@ -24,6 +24,8 @@ import * as gen from '../src/generator/build.mjs';
 import { validate } from '../src/validator/validate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// where test outputs go: results/ by default, a fresh experiment's own directory under run_all.sh
+const RESULTS = process.env.RESULTS_DIR ?? join(ROOT, 'results');
 const quick = process.argv.includes('--quick');
 const SIZES = quick ? [400, 800] : [400, 800, 1600, 3200, 6400, 12800, 20000, 31000];
 const SEEDS = quick ? 3 : 20;
@@ -64,7 +66,7 @@ const summary = {
     boundary: boundary.reduce((a, r) => a + (r.travelGuardFired ?? 0), 0),
     boundaryInstancesAffected: boundary.filter((r) => r.travelGuardFired).length }
 };
-mkdirSync(join(ROOT, 'results'), { recursive: true });
-if (!quick) writeFileSync(join(ROOT, 'results/generator-selftest.json'), JSON.stringify({ summary, instances: all }, null, 1));
+mkdirSync(RESULTS, { recursive: true });
+if (!quick) writeFileSync(join(RESULTS, 'generator-selftest.json'), JSON.stringify({ summary, instances: all }, null, 1));
 console.log(JSON.stringify(summary));
 if (bad.length) { console.log('FAIL: witness not feasible or not one placement per requirement:', bad.slice(0, 5).map((r) => `n=${r.n} s=${r.seed}`)); process.exit(1); }

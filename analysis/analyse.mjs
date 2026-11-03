@@ -1,34 +1,43 @@
 #!/usr/bin/env node
 /**
- * Turns results/*.jsonl and the test outputs into every number the article reports from the
- * reproduction runs: results/summary.json (all estimates), results/paired-observations.csv (every
- * matched pair behind every effect), and results/tex/*.tex (LaTeX macros and tables).
+ * Turns the run records of one directory and the test outputs into every number the article
+ * reports from the reproduction runs: <dir>/summary.json (all estimates), <dir>/paired-observations.csv
+ * (every matched pair behind every effect). analysis/tables.mjs then writes <dir>/tex/*.tex.
  *
- * The analysis enforces its own preconditions (safeguard 7): a row whose budget was not spent is
- * an error; soft-cost comparisons use only replicates on which BOTH arms are feasible, and the
- * feasibility counts are reported beside every effect; every design's cells are checked for
- * completeness before an effect is computed.
+ *   node analysis/analyse.mjs                      the article's records (results/)
+ *   node analysis/analyse.mjs --results runs/X     the records of a fresh experiment
+ *   node analysis/analyse.mjs --results runs/X --partial   an unfinished experiment, for inspection
+ *
+ * The analysis enforces its own preconditions (safeguards 6 and 7): analysis/records.mjs checks
+ * every design's records against its plan -- each planned cell exactly once, nothing else, the
+ * released (or declared-equivalent) sources, the current metric version, the effective options of
+ * the released code, spent budgets -- and refuses to continue otherwise. Soft-cost comparisons use
+ * only replicates on which both arms are feasible; feasibility counts and every exclusion (an
+ * infeasible arm, a zero baseline for the relative difference) are reported beside every effect.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import { DESIGNS, CONFIGS } from '../experiments/designs.mjs';
+import { dirname, join, resolve } from 'node:path';
+import { ARTICLE_DESIGNS } from '../experiments/designs.mjs';
 import { tci, signTest, median, mean } from '../src/lib/stats.mjs';
+import { loadSolver } from '../src/lib/solver.mjs';
+import { checkDesign, loadDesign } from './records.mjs';
+import { pairedEffect } from './effects.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const R = join(ROOT, 'results');
-const load = (d) => { const f = join(R, `${d}.jsonl`); return existsSync(f) ? readFileSync(f, 'utf8').split('\n').filter(Boolean).map(JSON.parse) : null; };
+const arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : undefined; };
+const R = resolve(arg('--results') ?? process.env.RESULTS_DIR ?? join(ROOT, 'results'));
 const partial = process.argv.includes('--partial');
+const mod = await loadSolver();
 
 const data = {};
-for (const d of Object.keys(DESIGNS)) {
-  const rows = load(d);
-  if (!rows) { if (partial) continue; throw new Error(`results/${d}.jsonl is missing (run ./run_all.sh, or pass --partial)`); }
-  const main = rows.filter((r) => !r.canary);
-  const D = DESIGNS[d];
-  const expected = D.order === 'repeat6' ? 6 : D.configs.length * D.reps.length;
-  if (main.length !== expected && !partial) throw new Error(`${d}: ${main.length} runs, expected ${expected} -- incomplete batch`);
-  for (const r of main) if (!r.budgetSpent) throw new Error(`${d}: ${r.key} did not spend its budget`);
+const inputs = createHash('sha256');
+for (const d of ARTICLE_DESIGNS) {
+  const rows = loadDesign(R, d);
+  if (!rows) { if (partial) continue; throw new Error(`${join(R, d + '.jsonl')} is missing (run ./run_all.sh, or pass --partial)`); }
+  checkDesign(d, rows, mod, { partial });
+  inputs.update(readFileSync(join(R, `${d}.jsonl`)));
   data[d] = rows;
 }
 const cell = (d, config) => (data[d] ?? []).filter((r) => !r.canary && r.config === config);
@@ -36,20 +45,14 @@ const pairs = [];   // every matched observation, for the CSV
 
 /** Paired effect of `ablated` against `baseline` in design d. */
 function effect(d, ablated, baseline = 'full', reps = null) {
-  const A = new Map(cell(d, ablated).map((r) => [r.rep, r])), B = new Map(cell(d, baseline).map((r) => [r.rep, r]));
-  const ids = [...A.keys()].filter((i) => B.has(i) && (!reps || reps.includes(i))).sort((x, y) => x - y);
-  const feasA = ids.filter((i) => A.get(i).feasible).length, feasB = ids.filter((i) => B.get(i).feasible).length;
-  const matched = ids.filter((i) => A.get(i).feasible && B.get(i).feasible && B.get(i).soft > 0);
-  const rel = matched.map((i) => 100 * (A.get(i).soft - B.get(i).soft) / B.get(i).soft);
-  const abs = matched.map((i) => A.get(i).soft - B.get(i).soft);
-  for (const i of matched) pairs.push({ design: d, ablated, baseline, rep: i, sA: A.get(i).soft, sB: B.get(i).soft, rel: 100 * (A.get(i).soft - B.get(i).soft) / B.get(i).soft });
-  return { design: d, ablated, baseline, replicates: ids.length, feasibleAblated: feasA, feasibleBaseline: feasB,
-    excluded: ids.length - matched.length, rel: tci(rel), abs: tci(abs), sign: signTest(rel),
-    medianSoftAblated: feasA ? median(ids.filter((i) => A.get(i).feasible).map((i) => A.get(i).soft)) : null,
-    medianSoftBaseline: feasB ? median(ids.filter((i) => B.get(i).feasible).map((i) => B.get(i).soft)) : null };
+  const e = pairedEffect(cell(d, ablated), cell(d, baseline), { reps, label: `${d} ${ablated} vs ${baseline}`, partial });
+  for (const p of e.pairs) pairs.push({ design: d, ablated, baseline, rep: p.rep, sA: p.sA, sB: p.sB, abs: p.abs, rel: p.rel });
+  const { pairs: _p, ...rest } = e;
+  return { design: d, ablated, baseline, ...rest };
 }
 
-const S = { generated: new Date().toISOString(), estimand: 'mean paired relative difference (%), 95% Student-t interval; replicate = generated instance + solver seed' };
+const S = { records: R === resolve(ROOT, 'results') ? 'results/' : R, recordsSha256: inputs.digest('hex'),
+  estimand: 'mean paired relative difference (%), approximate 95% Student-t interval; replicate = generated instance + solver seed; pairs with a zero baseline are excluded from the relative difference only' };
 
 // ---- Table 3 replication (n = 3200) -------------------------------------------------------
 const T3 = ['no-chain', 'no-taper', 'no-hot', 'no-rcl', 'no-swap', 'fixed-weight', 'short-history', 'long-history'];
@@ -125,7 +128,7 @@ for (const d of Object.keys(data)) { const f = cell(d, 'full'); if (f.length) S.
 
 // ---- tests ---------------------------------------------------------------------------------
 for (const [k, f] of [['validator', 'validator-tests.json'], ['mutations', 'mutations.json'], ['selftest', 'generator-selftest.json'], ['guard', 'generator-identity.json']]) {
-  const p = join(R, f); if (!existsSync(p)) continue;
+  const p = existsSync(join(R, f)) ? join(R, f) : join(ROOT, 'results', f); if (!existsSync(p)) continue;
   const j = JSON.parse(readFileSync(p, 'utf8'));
   if (k === 'validator') S.validator = { pairs: j.cases.filter((c) => c.kind !== 'boundary case').length, boundary: j.cases.filter((c) => c.kind === 'boundary case').length, failed: j.cases.filter((c) => !c.pass).map((c) => c.id) };
   if (k === 'mutations') S.mutations = { total: j.length, caughtFinal: j.filter((m) => m.final.caught).length, caughtInitial: j.filter((m) => m.initial.caught).length, survivedInitial: j.filter((m) => !m.initial.caught).map((m) => m.id) };
@@ -135,6 +138,6 @@ for (const [k, f] of [['validator', 'validator-tests.json'], ['mutations', 'muta
 
 mkdirSync(join(R, 'tex'), { recursive: true });
 writeFileSync(join(R, 'summary.json'), JSON.stringify(S, null, 1));
-writeFileSync(join(R, 'paired-observations.csv'), 'design,ablated,baseline,replicate,soft_ablated,soft_baseline,relative_difference_pct\n' +
-  pairs.map((p) => [p.design, p.ablated, p.baseline, p.rep, p.sA, p.sB, p.rel.toFixed(3)].join(',')).join('\n') + '\n');
-console.log('wrote results/summary.json, results/paired-observations.csv');
+writeFileSync(join(R, 'paired-observations.csv'), 'design,ablated,baseline,replicate,soft_ablated,soft_baseline,absolute_difference,relative_difference_pct\n' +
+  pairs.map((p) => [p.design, p.ablated, p.baseline, p.rep, p.sA, p.sB, p.abs, p.rel === null ? '' : p.rel.toFixed(3)].join(',')).join('\n') + '\n');
+console.log(`wrote ${join(R, 'summary.json')}, ${join(R, 'paired-observations.csv')}`);

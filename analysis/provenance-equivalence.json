@@ -1,0 +1,14 @@
+{
+ "_comment": "Source versions accepted as equivalent to the released ones, with the evidence. analysis/records.mjs rejects any record whose solver, generator or validator hash is neither the released hash nor listed here.",
+ "solver": [],
+ "validator": [],
+ "generator": [
+  {
+   "sha256": "1098c58e92fa1f86c0f0e4fd508b40865383e2f21b5ddefb27dc87a8fb46f499",
+   "equivalentTo": "0db315ee99e81b6c7a7c5dfb07753abebc4885ce991a7c3fc9fe0529b2e0363b",
+   "change": "travel guard added to src/generator/build.mjs (PROVENANCE.md, 'The guard')",
+   "evidence": "results/generator-identity.json: byte-identical instances on 13 sizes x 20 seeds and on the boundary configurations; the guard never fires on the study's instances",
+   "records": "T3-moves, B-moves, L-sweep (made before the guard was added)"
+  }
+ ]
+}

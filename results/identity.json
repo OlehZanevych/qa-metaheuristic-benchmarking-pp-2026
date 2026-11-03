@@ -1,6 +1,30 @@
 {
+ "records": "results/",
+ "sources": [
+  "archive/records/ablation-moves.jsonl",
+  "archive/records/ablation-twofactor.jsonl",
+  "archive/records/ablation-deep3200.jsonl",
+  "archive/records/ablation-deep12800.jsonl"
+ ],
+ "comparedFields": [
+  "soft",
+  "hard",
+  "moves",
+  "feasible",
+  "violations"
+ ],
+ "scheduleIdentity": "not assessed: the archived records store no assignments",
+ "candidates": 220,
  "compared": 175,
  "identical": 175,
+ "unmatched": 45,
+ "unmatchedBy": {
+  "no-taper n=12800 budget=3000000": 10,
+  "no-hot n=12800 budget=3000000": 10,
+  "long-history n=12800 budget=3000000": 10,
+  "fixed-weight n=12800 budget=3000000": 10,
+  "short-history n=12800 budget=3000000": 5
+ },
  "differing": [],
  "clampedRequests": {
   "compared": 5,
